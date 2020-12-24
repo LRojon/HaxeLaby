@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandDir</title>
+</head>
+<body>
+    <div id="res"></div>
+</body>
+<script>
+    let dir = ["UP", "DOWN", "LEFT", "RIGHT"];
+    for (let index = 0; index < 48; index++) {
+        random(index);
+    }
+
+    function random(ite)
+    {
+        for (let i = 0; i < dir.length; i++) {
+            let r = Math.floor(Math.random() * 1000) % 4;
+            
+            let tmp = dir[r];
+            dir[r] = dir[i];
+            dir[i] = tmp;
+        }
+        document.getElementById("res").innerHTML += ite + ' : ' + toStr() + '<br>';
+    }
+
+    function toStr()
+    {
+        return dir[0] + " | " + dir[1] + " | " + dir[2] + " | " + dir[3];
+    }
+</script>
+</html>
